@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: default-deny-egress-but-dns-and-proxy
-  namespace: ignite
+  namespace: measurement
 spec:
   podSelector: {}
   policyTypes:
@@ -36,7 +36,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: proxy-allow-egress
-  namespace: ignite
+  namespace: measurement
 spec:
   podSelector:
     matchLabels:
@@ -54,7 +54,7 @@ metadata:
   labels:
     run: squid-proxy
   name: squid-proxy
-  namespace: ignite
+  namespace: measurement
 spec:
   containers:
   - image: ubuntu/squid:5.2-22.04_beta
@@ -72,7 +72,7 @@ metadata:
   labels:
     run: squid-proxy
   name: squid-proxy
-  namespace: ignite
+  namespace: measurement
 spec:
   ports:
   - port: 3128
